@@ -426,9 +426,12 @@ logit_all5_fit <- cbind(logit_all5_fit, aic=logit_all5$aic)
 logit_all6 <- glm(pooroutcome ~ CHW_monthly_cases + missed_treatment + CHW_error_rate + month_fu_casecount + wetseason + num_diagnoses + malaria + illness_onset_beyond24 + CHW_monthly_cases*wetseason, data= treated, family="binomial")
 logit_all6_fit <- tidy(logit_all6)
 logit_all6_fit <- cbind(logit_all6_fit, aic=logit_all6$aic)
+logit_all7 <- glm(pooroutcome ~ CHW_monthly_cases + missed_treatment + CHW_error_rate + month_fu_casecount + wetseason + num_diagnoses + illness_onset_beyond24 + CHW_monthly_cases*wetseason, data= treated, family="binomial")
+logit_all7_fit <- tidy(logit_all7)
+logit_all7_fit <- cbind(logit_all7_fit, aic=logit_all7$aic)
 
 # save all full model results
-all_results <- rbind(logit_all_CHW1_fit, logit_all_CHW2_fit, logit_all1_fit, logit_all2_fit, logit_all3_fit, logit_all4_fit, logit_all5_fit, logit_all6_fit)
+all_results <- rbind(logit_all_CHW1_fit, logit_all_CHW2_fit, logit_all1_fit, logit_all2_fit, logit_all3_fit, logit_all4_fit, logit_all5_fit, logit_all6_fit, logit_all7_fit)
 
 
 ######################################
